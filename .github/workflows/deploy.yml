@@ -21,12 +21,14 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Debug Environment Variables
-        run: printenv | grep 'URL_'
+        run:  |
+              echo "Available environment variables:"
+              printenv
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         env:
-          URL_DOWNLOAD_APP: ${{ vars.URL_DOWNLOAD_APP }}
-          URL_REQUEST_BOOKING: ${{ vars.URL_REQUEST_BOOKING }}
+          URL_DOWNLOAD_APP: "https://www.download.com/app"
+          URL_REQUEST_BOOKING: "https://www.request.com/booking"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
