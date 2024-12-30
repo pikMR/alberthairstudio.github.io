@@ -6,7 +6,7 @@ const SERVER_PORT = 3000;
 // the url to access your blog during local development
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
 // the url to access your blog after deploying it somewhere (Eg. Netlify)
-const LIVE_URL = "https://alberthairstudio.github.io";
+const LIVE_URL = "https://pikmr.github.io/alberthairstudio";
 // this is the astro command your npm script runs
 const SCRIPT = process.env.npm_lifecycle_script || "";
 const isBuild = SCRIPT.includes("astro build");
@@ -20,6 +20,7 @@ if (isBuild) {
 export default defineConfig({
   server: { port: SERVER_PORT },
   site: BASE_URL,
+  base: "/alberthairstudio",
   integrations: [sitemap()],
   adapter: netlify(),
   env: {

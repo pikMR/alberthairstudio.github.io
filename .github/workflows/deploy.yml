@@ -27,8 +27,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         env:
-          URL_DOWNLOAD_APP: "https://www.download.com/app"
-          URL_REQUEST_BOOKING: "https://www.request.com/booking"
+          URL_DOWNLOAD_APP: ${{ vars.URL_DOWNLOAD_APP }}
+          URL_REQUEST_BOOKING: ${{ vars.URL_REQUEST_BOOKING }}
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
