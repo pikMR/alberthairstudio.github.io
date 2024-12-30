@@ -20,7 +20,7 @@ if (isBuild) {
 export default defineConfig({
   server: { port: SERVER_PORT },
   site: BASE_URL,
-  base: "/alberthairstudio",
+  base: "https://pikmr.github.io/alberthairstudio.github.io/",
   integrations: [sitemap()],
   adapter: netlify(),
   env: {
