@@ -1,7 +1,7 @@
 ---
-import FeatureOne from '../assets/object-one.svg'
-import FeatureTwo from '../assets/object-two.svg'
-import FeatureThree from '../assets/object-three.svg'
+import FeatureOne from '../assets/jpg/tijeras.jpg'
+import FeatureTwo from '../assets/jpg/corte.jpeg'
+import FeatureThree from '../assets/jpg/estil.jpg'
 ---
 
 
@@ -12,28 +12,29 @@ import FeatureThree from '../assets/object-three.svg'
         <div class="row">
             <div class="sol-wrap one-third column">
                 <div class="sol-media m-margin">
-                    <img src={FeatureOne} alt="Prospect">
+                    <img src={FeatureOne} alt="Prospecto" class="rounded-img">
                 </div>
-                <h3 class="h3-title">Learning</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere velit ullam maxime veritatis,  possimus.</p>
+                <h3 class="h3-title">Corte de Cabello</h3>
+                <p>Desde estilos clásicos hasta las últimas tendencias.</p>
             </div>
             <div class="sol-wrap one-third column">
                 <div class="sol-media m-margin">
-                    <img src={FeatureTwo} alt="Marketing">
+                    <img src={FeatureTwo} alt="Marketing" class="rounded-img">
                 </div>
-                <h3 class="h3-title">Support</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere velit ullam maxime veritatis,  possimus.</p>
+                <h3 class="h3-title">Afeitado</h3>
+                <p>Experiencia tradicional con toallas calientes.</p>
             </div>
             <div class="sol-wrap one-third column">
                 <div class="sol-media  m-margin">
-                    <img src={FeatureThree} alt="Automation">
+                    <img src={FeatureThree} alt="Automatización" class="rounded-img">
                 </div>
-                <h3 class="h3-title">Insights</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere velit ullam maxime veritatis,  possimus.</p>
+                <h3 class="h3-title">Estilizado</h3>
+                <p>Perfecto para eventos especiales o para destacar en tu día a día.</p>
             </div>
         </div>
     </div>
 </section>
+
 
 
 <style lang="scss">
@@ -48,6 +49,9 @@ import FeatureThree from '../assets/object-three.svg'
         }
         img{
             width: 150px;
+        }
+        .rounded-img {
+            border-radius: 15px;
         }
     @media (max-width:700px) {
         text-align: center;

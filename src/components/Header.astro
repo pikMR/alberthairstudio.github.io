@@ -1,36 +1,38 @@
 ---
-import Logo from '../assets/logo-dark.svg'
+import Logo from '../assets/cropped-logo-4.png'
 ---
-
 
 <header>
     <nav class="container">
         <div class="nav-logo">
-            <a href="https://anthonycharles.work">
-                <img src={Logo} alt="brand logo">
+            <a href="#">
+                <img src={Logo} alt="logo de la marca">
             </a>
         </div>
         <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#customers">Customers</a>
-            <a href="https://astrobrewpro.netlify.app/" target="_blank">
-                <span>Premium</span>
-                <span class="pulse tag">New</span>
+            <a href="#features">Servicios</a>
+            <a href="#customers">Reseñas</a>
+            <a href="https://alberthairstudiopro.netlify.app/" target="_blank">
+                <span>Pedir Cita</span>
+                <span class="pulse tag">App</span>
             </a>
         </div>
-        <div class="nav-cta">
-            <a href="#">Login</a>
-            <a href="https://github.com/LaB-CH3/astrobrew" class="button button-primary">Join us</a>
-        </div>
+        <!-- <div class="nav-cta">
+            <a href="#">Iniciar sesión</a>
+            <a href="https://github.com/LaB-CH3/alberthairstudio" class="button button-primary">Únete a nosotros</a>
+        </div> -->
     </nav>
 </header>
 
 
 <style lang="scss">
+.nav-logo img{
+    width: 150px !important;
+}
 nav{
     position: relative;
     display: grid;
-    grid-template-columns: 12% 55% 30%;
+    grid-template-columns: 30% 55% 30%;
     top: 20px;
     align-items: center;
     .nav-cta{

@@ -1,6 +1,7 @@
 ---
-import Showcase from '../assets/hiw.svg'
-const features = ['Find your tutor', 'Choose your subject', 'Start learning']
+import ShowcaseDani from '../assets/jpg/resizeddani.jpg'
+import ShowcasePuas from '../assets/jpg/resizedpuas.jpg'
+const features = ['Encuentra tu barbero', 'Elige tu estilo', 'Elije fecha y hora']
 ---
 
 
@@ -8,53 +9,55 @@ const features = ['Find your tutor', 'Choose your subject', 'Start learning']
     <div class="container">
          <div class="row product-brief-items">
             <div class="brief-media center one-half column">
-                <img src={Showcase} alt="Showcase mockup">
+                <div class="image-row">
+                    <img src={ShowcaseDani} alt="Barber1">
+                    <img src={ShowcasePuas} alt="Barber2">
+                </div>
             </div>
             <div class="brief-tab one-half column">
-                <h3 class="h1-title">Spark growth and engagement</h3>
-                <p class="m-paragraph m-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                <h3 class="h1-title">Impulsa tu estilo y confianza</h3>
+                <p class="m-paragraph m-margin">Para pedir cita tendrás que instalarte la app mas demandada por las barberías APPBARBER.</p>
                 <ol class="ro">
                     {features.map((el, index) => (
                         <li><span>{index + 1}</span> <span>{el}</span></li>
                     ))}
                 </ol>
                 <br>
-                <a href="https://github.com/LaB-CH3/astrobrew" class="button button-primary lg">Register for free</a>
+                <a href="https://github.com/LaB-CH3/alberthairstudio" class="button button-primary lg">Descarga la app</a>
             </div>
-           
         </div>
     </div>
 </section>
 
-
 <style lang="scss">
-
-
-
-.product-defined{ 
-    padding: 120px 20px; 
-    .brief-media img{
-      width: 100%;
-     
+.product-defined {
+    padding: 120px 20px;
+    .brief-media {
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            img {
+                width: 48%;
+            }
+        }
     }
-    .product-brief-items{
+    .product-brief-items {
         display: flex;
         align-items: center;
     }
-    .brief-tab{
+    .brief-tab {
         padding-top: 40px;
     }
-   
-    ol{
+    ol {
         counter-reset: step;
         align-items: center;
         list-style: none;
-        >li{
+        > li {
             position: relative;
             display: flex;
             gap: 10px;
             align-items: center;
-            span:first-child{
+            span:first-child {
                 border: 2px solid #121117;
                 height: 20px;
                 width: 20px;
@@ -63,20 +66,16 @@ const features = ['Find your tutor', 'Choose your subject', 'Start learning']
                 justify-content: center;
                 border-radius: 50px;
             }
-          
-           
         }
     }
-
     @media (max-width: 700px) {
-        .product-brief-items{
+        .product-brief-items {
             flex-direction: column-reverse;
             gap: 30px;
-            .brief-tab{
+            .brief-tab {
                 padding-top: 0px;
             }
         }
-        
     }
-  }
+}
 </style>

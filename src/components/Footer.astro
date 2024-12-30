@@ -1,33 +1,43 @@
 ---
-import Start from '../assets/start.svg'
-const creator = `https://instagram.com/codetonero/`
+import instagramIcon from '../assets/instagram.svg';
+import twitterIcon from '../assets/twitter.svg';
+import locationIcon from '../assets/location.svg';
+import whatsappIcon from '../assets/whatsapp.svg';
+
 const links = [
-  { title: 'Help',  link: creator },
-  { title: 'FAQ', link: creator },
-  { title: 'Privacy', link: creator },
-  { title: 'Discord', link: creator },
+  { title: 'Instagram',  link: `https://www.instagram.com/albert_hair_studio/`, icon: instagramIcon },
+  { title: 'X', link: `https://twitter.com/_alberthebarber/`, icon: twitterIcon },
+  { title: 'Whatsapp', link: `https://wa.me/34617584185`, icon: whatsappIcon },
+  { title: 'Localización', link: `https://maps.app.goo.gl/DugarCbLatEZJPNM9`, icon: locationIcon },
   ]
 ---
 
 <footer>
-    <div class="container">
-      <div class="flex">
-        {links.map((item) => (
-            <a href={item.link} target="_blank">{item.title}</a>
-        ))}      
-      </div>
-      <div class="center">
-        <a href="https://github.com/LaB-CH3/astrobrew">
-          <img src={Start} alt="">
-        </a>
-      </div>
+  <div class="container">
+    <div class="flex">
+    {links.map((item) => (
+      <a href={item.link} target="_blank">
+        <img src={item.icon} alt={item.title} class="footer-icon" />
+      </a>
+    ))}      
     </div>
+    <!-- <div class="center">
+    <a href="https://github.com/LaB-CH3/alberthairstudio">
+      <img src={Start} alt="">
+    </a>
+    </div> -->
+  </div>
 </footer>
 
 <style lang="scss">
 
 footer{
   padding: 50px;
+}
+
+.footer-icon {
+  width: 50px;
+  height: 50px;
 }
 
 .flex{

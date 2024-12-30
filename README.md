@@ -3,14 +3,7 @@
 
 
 ## About
-Astrobrew is a free and open-source elegant landing page for Micro SaaS products built with Astro & Skeleton CSS
-
-### Live demo
-(https://brew.indiebold.com/)
-
-### Upgrade to Astrobrew Pro version
-(https://brewpro.indiebold.com/)
-
+AlbertHairStudio is a free and open-source elegant landing page for Micro SaaS products built with Astro & Skeleton CSS
 
 ## 🚀 Project Structure
 
@@ -49,15 +42,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`             | Starts local dev server at `localhost:3000`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
-
-
-
-
-
-
-## 👀 Curious to Explore More?
-
-Check out [LAB-CH3](https://github.com/LaB-CH3) for a growing collection of current and future templates.
-
-If you’ve found this helpful, consider fueling my creativity!  
-[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/d2OuR1c)
