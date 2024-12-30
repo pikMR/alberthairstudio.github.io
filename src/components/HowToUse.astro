@@ -1,81 +1,94 @@
 ---
-import ShowcaseDani from '../assets/jpg/resizeddani.jpg'
-import ShowcasePuas from '../assets/jpg/resizedpuas.jpg'
-const features = ['Encuentra tu barbero', 'Elige tu estilo', 'Elije fecha y hora']
+import ShowcaseDani from "../assets/jpg/resizeddani.jpg";
+import ShowcasePuas from "../assets/jpg/resizedpuas.jpg";
+import { URL_DOWNLOAD_APP } from "astro:env/client";
+const features = [
+  "Encuentra tu barbero",
+  "Elige tu estilo",
+  "Elije fecha y hora",
+];
 ---
 
-
 <section class="product-defined">
-    <div class="container">
-         <div class="row product-brief-items">
-            <div class="brief-media center one-half column">
-                <div class="image-row">
-                    <img src={ShowcaseDani} alt="Barber1">
-                    <img src={ShowcasePuas} alt="Barber2">
-                </div>
-            </div>
-            <div class="brief-tab one-half column">
-                <h3 class="h1-title">Impulsa tu estilo y confianza</h3>
-                <p class="m-paragraph m-margin">Para pedir cita tendrás que instalarte la app mas demandada por las barberías APPBARBER.</p>
-                <ol class="ro">
-                    {features.map((el, index) => (
-                        <li><span>{index + 1}</span> <span>{el}</span></li>
-                    ))}
-                </ol>
-                <br>
-                <a href="https://github.com/LaB-CH3/alberthairstudio" class="button button-primary lg">Descarga la app</a>
-            </div>
+  <div class="container">
+    <div class="row product-brief-items">
+      <div class="brief-media center one-half column">
+        <div class="image-row">
+          <img src={ShowcaseDani.src} alt="Barber1" />
+          <img src={ShowcasePuas.src} alt="Barber2" />
         </div>
+      </div>
+      <div class="brief-tab one-half column">
+        <h3 class="h1-title">Impulsa tu estilo y confianza</h3>
+        <p class="m-paragraph m-margin">
+          Para pedir cita tendrás que instalarte la app mas demandada por las
+          barberías APPBARBER.
+        </p>
+        <ol class="ro">
+          {
+            features.map((el, index) => (
+              <li>
+                <span>{index + 1}</span> <span>{el}</span>
+              </li>
+            ))
+          }
+        </ol>
+        <br />
+        <a href={URL_DOWNLOAD_APP} class="button button-primary lg"
+          >Descarga la app</a
+        >
+      </div>
     </div>
+  </div>
 </section>
 
 <style lang="scss">
-.product-defined {
+  .product-defined {
     padding: 120px 20px;
     .brief-media {
-        .image-row {
-            display: flex;
-            justify-content: space-between;
-            img {
-                width: 48%;
-            }
+      .image-row {
+        display: flex;
+        justify-content: space-between;
+        img {
+          width: 48%;
         }
+      }
     }
     .product-brief-items {
-        display: flex;
-        align-items: center;
+      display: flex;
+      align-items: center;
     }
     .brief-tab {
-        padding-top: 40px;
+      padding-top: 40px;
     }
     ol {
-        counter-reset: step;
+      counter-reset: step;
+      align-items: center;
+      list-style: none;
+      > li {
+        position: relative;
+        display: flex;
+        gap: 10px;
         align-items: center;
-        list-style: none;
-        > li {
-            position: relative;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            span:first-child {
-                border: 2px solid #121117;
-                height: 20px;
-                width: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50px;
-            }
+        span:first-child {
+          border: 2px solid #121117;
+          height: 20px;
+          width: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50px;
         }
+      }
     }
     @media (max-width: 700px) {
-        .product-brief-items {
-            flex-direction: column-reverse;
-            gap: 30px;
-            .brief-tab {
-                padding-top: 0px;
-            }
+      .product-brief-items {
+        flex-direction: column-reverse;
+        gap: 30px;
+        .brief-tab {
+          padding-top: 0px;
         }
+      }
     }
-}
+  }
 </style>

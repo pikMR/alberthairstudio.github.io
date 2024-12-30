@@ -6,7 +6,7 @@ import Logo from '../assets/cropped-logo-4.png'
     <nav class="container">
         <div class="nav-logo">
             <a href="#">
-                <img src={Logo} alt="logo de la marca">
+                <img src={Logo.src} alt="logo de la marca">
             </a>
         </div>
         <div class="nav-links">
@@ -17,13 +17,8 @@ import Logo from '../assets/cropped-logo-4.png'
                 <span class="pulse tag">App</span>
             </a>
         </div>
-        <!-- <div class="nav-cta">
-            <a href="#">Iniciar sesión</a>
-            <a href="https://github.com/LaB-CH3/alberthairstudio" class="button button-primary">Únete a nosotros</a>
-        </div> -->
     </nav>
 </header>
-
 
 <style lang="scss">
 .nav-logo img{
@@ -63,8 +58,6 @@ nav{
         }
     }
 }
-
-
 .pulse{
     animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite;
 }

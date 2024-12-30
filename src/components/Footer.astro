@@ -17,15 +17,10 @@ const links = [
     <div class="flex">
     {links.map((item) => (
       <a href={item.link} target="_blank">
-        <img src={item.icon} alt={item.title} class="footer-icon" />
+        <img src={item.icon.src} alt={item.title} class="footer-icon" />
       </a>
     ))}      
     </div>
-    <!-- <div class="center">
-    <a href="https://github.com/LaB-CH3/alberthairstudio">
-      <img src={Start} alt="">
-    </a>
-    </div> -->
   </div>
 </footer>
 

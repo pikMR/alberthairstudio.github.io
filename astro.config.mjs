@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify/functions";
+import netlify from "@astrojs/netlify";
 
 const SERVER_PORT = 3000;
 // the url to access your blog during local development
@@ -22,7 +22,21 @@ export default defineConfig({
   site: BASE_URL,
   integrations: [sitemap()],
   adapter: netlify(),
+  env: {
+    // this is the environment variable that will be used in your astro files
+    schema: {
+      URL_DOWNLOAD_APP: envField.string({
+        context: "client",
+        access: "public",
+      }),
+      URL_REQUEST_BOOKING: envField.string({
+        context: "client",
+        access: "public",
+      }),
+    },
+  },
 });
+
 // export default defineConfig({
 //   output: "server",
 //   adapter: netlify()

@@ -1,63 +1,76 @@
 ---
-import Showcase from '../assets/jpg/puas.jpg'
+import Showcase from "../assets/jpg/puas.jpg";
+import { URL_REQUEST_BOOKING } from "astro:env/client";
 ---
 
 <section class="product-hero">
-    <div class="container">
-       <div class="row">
-           <div class="one-half column">
-              <div class="d-cell">
-               <h1 class="h1-title">Elige tu corte y concerta una cita con nosotros!</h1>
-               <div class="content">
-                   <p>Tu lugar de confianza para cuidar tu estilo. En Albert Hair Studio creemos que un buen corte de cabello va más allá de lo estético: es una experiencia. Nuestro equipo de profesionales no solo domina las últimas tendencias en barbería, sino que también se esfuerza por brindarte un trato personalizado y amigable.</p>
-                   <a href="https://github.com/LaB-CH3/alberthairstudio" class="button button-primary lg">Pide tu cita!</a>
-               </div>
-              </div>
-           </div>
-           <div class="one-half column hero-media">
-               <img src={Showcase} class="u-full-width" alt="Ilustración del héroe">
-           </div>
-       </div>
+  <div class="container">
+    <div class="row">
+      <div class="one-half column">
+        <div class="d-cell">
+          <h1 class="h1-title">
+            Elige tu corte y concerta una cita con nosotros!
+          </h1>
+          <div class="content">
+            <p>
+              Tu lugar de confianza para cuidar tu estilo. En Albert Hair Studio
+              creemos que un buen corte de cabello va más allá de lo estético:
+              es una experiencia. Nuestro equipo de profesionales no solo domina
+              las últimas tendencias en barbería, sino que también se esfuerza
+              por brindarte un trato personalizado y amigable.
+            </p>
+            <a href={URL_REQUEST_BOOKING} class="button button-primary lg"
+              >Pide tu cita!</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="one-half column hero-media">
+        <img
+          src={Showcase.src}
+          class="u-full-width"
+          alt="Dueño de Albert Hair Studio"
+        />
+      </div>
     </div>
-   </section>
+  </div>
+</section>
 
-   <style lang="scss">
+<style lang="scss">
+  .product-hero {
+    padding: 70px 0;
+    .row {
+      display: flex;
+      align-items: center;
+    }
+    .one-half {
+      display: table;
+      height: 400px;
+      margin-bottom: 40px;
+      .d-cell {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    .hero-media {
+      position: relative;
+      img:not(.u-full-width) {
+        width: 80px;
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+      }
+    }
+  }
 
-    .product-hero{
-        padding: 70px 0;
-        .row{
-            display: flex;
-            align-items: center;
-        }
-        .one-half{
-            display: table;
-            height: 400px;
-            margin-bottom: 40px;
-            .d-cell{
-                display: table-cell;
-                vertical-align: middle;
-            }
-        }
-    .hero-media{
-        position: relative;
-        img:not(.u-full-width){
-            width: 80px;
-            position: absolute;
-            left: 20px;
-            bottom: 0;
+  @media (max-width: 700px) {
+    .product-hero {
+      .row {
+        flex-direction: column;
+        .hero-media {
+          display: none;
         }
       }
     }
-
-
-    @media (max-width: 700px) {
-        .product-hero{
-            .row{
-                flex-direction: column;
-                .hero-media{
-                    display: none;
-                }
-            }
-        }
-    }
-   </style>
+  }
+</style>

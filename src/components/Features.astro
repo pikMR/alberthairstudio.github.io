@@ -1,63 +1,67 @@
 ---
-import FeatureOne from '../assets/jpg/tijeras.jpg'
-import FeatureTwo from '../assets/jpg/corte.jpeg'
-import FeatureThree from '../assets/jpg/estil.jpg'
+import FeatureOne from "../assets/jpg/tijeras.jpg";
+import FeatureTwo from "../assets/jpg/corte.jpeg";
+import FeatureThree from "../assets/jpg/estil.jpg";
+
+const links = [
+  {
+    title: "Corte de cabello",
+    link: FeatureOne.src,
+    desc: "Desde estilos clásicos hasta las últimas tendencias.",
+  },
+  {
+    title: "Afeitado",
+    link: FeatureTwo.src,
+    desc: "Experiencia tradicional con toallas calientes.",
+  },
+  {
+    title: "Estilizado",
+    link: FeatureThree.src,
+    desc: "Perfecto para eventos especiales o para destacar en tu día a día.",
+  },
+];
 ---
 
-
-
 <section class="solutions" id="features">
-    <div class="container">
-      
-        <div class="row">
-            <div class="sol-wrap one-third column">
-                <div class="sol-media m-margin">
-                    <img src={FeatureOne} alt="Prospecto" class="rounded-img">
-                </div>
-                <h3 class="h3-title">Corte de Cabello</h3>
-                <p>Desde estilos clásicos hasta las últimas tendencias.</p>
+  <div class="container">
+    <div class="row">
+      {
+        links.map((item) => (
+          <div class="sol-wrap one-third column">
+            <div class="sol-media m-margin">
+              <img src={item.link} alt={item.title} class="rounded-img" />
             </div>
-            <div class="sol-wrap one-third column">
-                <div class="sol-media m-margin">
-                    <img src={FeatureTwo} alt="Marketing" class="rounded-img">
-                </div>
-                <h3 class="h3-title">Afeitado</h3>
-                <p>Experiencia tradicional con toallas calientes.</p>
-            </div>
-            <div class="sol-wrap one-third column">
-                <div class="sol-media  m-margin">
-                    <img src={FeatureThree} alt="Automatización" class="rounded-img">
-                </div>
-                <h3 class="h3-title">Estilizado</h3>
-                <p>Perfecto para eventos especiales o para destacar en tu día a día.</p>
-            </div>
-        </div>
+            <h3 class="h3-title">{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))
+      }
     </div>
-</section>
 
-
-
-<style lang="scss">
-    .solutions{
-        .container{
-            background-color: var(--tenary);
-            border-radius: 20px;
-            padding: 40px;
+    <style lang="scss">
+      .solutions {
+        .container {
+          background-color: var(--tenary);
+          border-radius: 20px;
+          padding: 40px;
         }
-        h3, p{
-            color: #fff;
+        h3,
+        p {
+          color: #fff;
         }
-        img{
-            width: 150px;
+        img {
+          width: 150px;
         }
         .rounded-img {
-            border-radius: 15px;
+          border-radius: 15px;
         }
-    @media (max-width:700px) {
-        text-align: center;
-        .sol-wrap{
+        @media (max-width: 700px) {
+          text-align: center;
+          .sol-wrap {
             padding: 20px;
+          }
         }
-    }
-}
-</style>
+      }
+    </style>
+  </div>
+</section>
