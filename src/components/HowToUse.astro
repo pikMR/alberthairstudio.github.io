@@ -1,7 +1,12 @@
 ---
 import ShowcaseDani from "../assets/jpg/resizeddani.jpg";
 import ShowcasePuas from "../assets/jpg/resizedpuas.jpg";
-import { URL_DOWNLOAD_APP } from "astro:env/client";
+import {
+  URL_DOWNLOAD_APP_IOS,
+  URL_DOWNLOAD_APP_ANDROID,
+} from "astro:env/client";
+import Android from "../assets/android-auto-svgrepo-com.svg";
+import Apple from "../assets/apple-logo-svgrepo-com.svg";
 const features = [
   "Encuentra tu barbero",
   "Elige tu estilo",
@@ -34,15 +39,34 @@ const features = [
           }
         </ol>
         <br />
-        <a href={URL_DOWNLOAD_APP} class="button button-primary lg"
-          >Descarga la app</a
-        >
+        <a href={URL_DOWNLOAD_APP_IOS} class="button button-primary lg">
+          <img src={Apple.src} alt="Apple" class="icon" /> Descarga la app ios
+        </a>
+        <a href={URL_DOWNLOAD_APP_ANDROID} class="button button-primary lg">
+          <img src={Android.src} alt="Android" class="icon" /> Descarga la app android
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <style lang="scss">
+  .button {
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .button:hover {
+    opacity: 0.7;
+  }
+  .button .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
   .product-defined {
     padding: 120px 20px;
     .brief-media {

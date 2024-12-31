@@ -19,19 +19,22 @@ if (isBuild) {
 // https://astro.build/config
 export default defineConfig({
   server: { port: SERVER_PORT },
-  site: isBuild
-    ? "https://pikmr.github.io"
-    : LOCALHOST_URL,
+  site: isBuild ? "https://pikmr.github.io" : LOCALHOST_URL,
   base: isBuild ? "alberthairstudio.github.io" : "",
   integrations: [sitemap()],
   adapter: netlify(),
   env: {
     // this is the environment variable that will be used in your astro files
     schema: {
-      URL_DOWNLOAD_APP: envField.string({
+      URL_DOWNLOAD_APP_IOS: envField.string({
         context: "client",
         access: "public",
-        default: "https://www.downloadpro.com/app",
+        default: "https://www.downloadpro.com/app/ios",
+      }),
+      URL_DOWNLOAD_APP_ANDROID: envField.string({
+        context: "client",
+        access: "public",
+        default: "https://www.downloadpro.com/app/android",
       }),
       URL_REQUEST_BOOKING: envField.string({
         context: "client",
