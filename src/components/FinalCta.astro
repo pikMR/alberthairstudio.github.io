@@ -1,75 +1,100 @@
-<section class="fine-section padded" id="customers">
-    <div class="container">
-        <div class="testimony">
-            <div class="flex">
-                <div class="customer-pic">
-                    <div class="circular-image">
-                        <img src="https://images.pexels.com/photos/3756985/pexels-photo-3756985.jpeg?auto=compress&cs=tinysrgb&w=800">
-                    </div>
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Star from "../assets/star-svgrepo-com.svg";
+const reviews = await getCollection("reviews");
+---
+
+<section aria-label="Review de usuarios" class="fine-section" id="customers">
+  <div class="container">
+    <div class="reviews-container">
+      {
+        reviews.map(async (review) => {
+          const { user, img, rating, comment, date, link, services } =
+            review.data;
+
+          return (
+            <article class="review-card">
+              <div class="customer-pic">
+                <div class="circular-image">
+                  <img
+                    src={`/src/assets/reviews/${img}`}
+                    alt={`comentario by ${user}`}
+                  />
                 </div>
-                <div class="customer-testimony">
-                    <h4 class="h3-title">"Gran profesional, un corte de pelo súper chulo y con técnica, muy majo y con tema de conversación. Volveré sin duda 🤩"</h4>
-                    <p>Profesional Barber random</p>
+              </div>
+              <div class="customer-testimony">
+                <h4 class="h3-title comment">{comment}</h4>
+                <p class="cursive">{services}</p>
+                <div>
+                  {[...Array(rating)].map((_, index) => (
+                    <Image src={Star} alt="Estrella" width={15} height={15} />
+                  ))}
+                  <p>
+                    <a href={link}> {date} </a>
+                  </p>
                 </div>
-            </div>
-        </div>
+                <p class="author">{user}</p>
+              </div>
+            </article>
+          );
+        })
+      }
     </div>
-</section> 
+  </div>
+</section>
 
 <style lang="scss">
-
-
-.fine-section{
+  .fine-section {
     background-color: var(--accent);
-    .container{
-        position: relative;
+    .container {
+      position: relative;
+      margin: 0 auto;
+      max-width: 1200px; /* Adjust this value as needed */
+      padding: 20px 20px;
     }
-}
-.testimony{
-    background-color: var(--accent);
-    padding: 60px 20px 20px  20px;
-    border-radius: 20px;
-}
-.customer-testimony{
-    width: 70%;
-    h4, p{
-        color: #fff;
+  }
+
+  .reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .review-card {
+    flex: 1 1 calc(40% - 20px); /* Make cards wider */
+    box-sizing: border-box;
+    padding: 10px; /* Reduce padding */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure content does not overflow */
+  }
+
+  .circular-image img {
+    width: 80px; /* Make images smaller */
+    height: 80px; /* Make images smaller */
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .comment {
+    font-size: 1.875rem; /* Adjust font size as needed */
+  }
+  .customer-testimony {
+    overflow: hidden; /* Ensure content does not overflow */
+  }
+
+  @media (max-width: 768px) {
+    .review-card {
+      flex: 1 1 calc(45% - 20px);
     }
-}
+  }
 
-.customer-pic{
-    width: 30%;
-}
-
-.circular-image {
-    width: 240px;
-    height: 240px;
-    display: inline-block;
-    position: absolute;
-    img{
-        width: 100%;
-        border-radius: 20px;
-        transform: translateY(-45px) rotate(-4deg);
+  @media (max-width: 480px) {
+    .review-card {
+      flex: 1 1 100%;
     }
- }
-
-
-
- @media (max-width:900px) {
-    .flex{
-        flex-direction: column;
-        .circular-image{
-            position: relative;
-        }
-        .customer-testimony{
-            width: 100%;
-        }
-    }
-    .fine-section{
-        margin-top: 70px;
-    }
- }
-
-
-
+  }
 </style>

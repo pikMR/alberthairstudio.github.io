@@ -1,6 +1,3 @@
-## Preview
-![basics](./src/demo/brew-thumbnail.png)
-
 
 ## About
 AlbertHairStudio is a free and open-source elegant landing page for Micro SaaS products built with Astro & Skeleton CSS
@@ -27,10 +24,6 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 └── package.json
 ```
-
-## Score
-![basics](./src/demo/score.png)
-
 
 ## 🧞 Commands
 
