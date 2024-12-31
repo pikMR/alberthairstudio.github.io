@@ -12,7 +12,7 @@ const links = [
   {
     title: "Afeitado",
     link: FeatureTwo.src,
-    desc: "Experiencia tradicional con toallas calientes.",
+    desc: "El mejor tratamiento para tu barba.",
   },
   {
     title: "Estilizado",
@@ -24,6 +24,7 @@ const links = [
 
 <section class="solutions" id="features">
   <div class="container">
+    <h2 class="h2-title center">Nuestros servicios</h2>
     <div class="row">
       {
         links.map((item) => (
@@ -44,6 +45,9 @@ const links = [
           background-color: var(--tenary);
           border-radius: 20px;
           padding: 40px;
+          h2 {
+            color: #fff;
+          }
         }
         h3,
         p {
