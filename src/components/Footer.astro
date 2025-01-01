@@ -1,52 +1,65 @@
 ---
-import instagramIcon from '../assets/instagram.svg';
-import twitterIcon from '../assets/twitter.svg';
-import locationIcon from '../assets/location.svg';
-import whatsappIcon from '../assets/whatsapp.svg';
+import instagramIcon from "../assets/instagram.svg";
+import twitterIcon from "../assets/twitter.svg";
+import locationIcon from "../assets/location.svg";
+import whatsappIcon from "../assets/whatsapp.svg";
 
 const links = [
-  { title: 'Instagram',  link: `https://www.instagram.com/albert_hair_studio/`, icon: instagramIcon },
-  { title: 'X', link: `https://twitter.com/_alberthebarber/`, icon: twitterIcon },
-  { title: 'Whatsapp', link: `https://wa.me/34617584185`, icon: whatsappIcon },
-  { title: 'Localización', link: `https://maps.app.goo.gl/DugarCbLatEZJPNM9`, icon: locationIcon },
-  ]
+  {
+    title: "Instagram",
+    link: `https://www.instagram.com/albert_hair_studio/`,
+    icon: instagramIcon,
+  },
+  {
+    title: "X",
+    link: `https://twitter.com/_alberthebarber/`,
+    icon: twitterIcon,
+  },
+  { title: "Whatsapp", link: `https://wa.me/34617584185`, icon: whatsappIcon },
+  {
+    title: "Localización",
+    link: `https://maps.app.goo.gl/DugarCbLatEZJPNM9`,
+    icon: locationIcon,
+  },
+];
 ---
 
 <footer>
-  <div class="container">
+  <div class="container" id="footer">
     <div class="flex">
-    {links.map((item) => (
-      <a href={item.link} target="_blank">
-        <img src={item.icon.src} alt={item.title} class="footer-icon" />
-      </a>
-    ))}      
+      {
+        links.map((item) => (
+          <a href={item.link} target="_blank">
+            <img src={item.icon.src} alt={item.title} class="footer-icon" />
+          </a>
+        ))
+      }
     </div>
   </div>
 </footer>
 
 <style lang="scss">
-
-footer{
-  padding: 50px;
-}
-
-.footer-icon {
-  width: 50px;
-  height: 50px;
-}
-
-.flex{
-  justify-content: center;
-  padding: 50px 10px;
-  a{
-    padding: 20px;
-    color: #111;
-    text-decoration: none;
-    font-size: 2rem;
+  footer {
+    padding: 50px;
   }
-}
 
-img{
+  .footer-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .flex {
+    justify-content: center;
+    padding: 50px 10px;
+    a {
+      padding: 20px;
+      color: #111;
+      text-decoration: none;
+      font-size: 2rem;
+    }
+  }
+
+  img {
     width: 200px;
   }
 </style>

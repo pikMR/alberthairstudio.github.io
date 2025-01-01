@@ -2,11 +2,16 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Star from "../assets/star-svgrepo-com.svg";
+import Reviews from "../assets/review_blanco.png";
+
 const reviews = await getCollection("reviews");
 ---
 
 <section aria-label="Review de usuarios" class="fine-section" id="customers">
   <div class="container">
+    <div class="reviews-header">
+      <img src={Reviews.src} alt="Reviews" class="reviews-image" />
+    </div>
     <div class="reviews-container">
       {
         reviews.map(async (review) => {
@@ -17,10 +22,7 @@ const reviews = await getCollection("reviews");
             <article class="review-card">
               <div class="customer-pic">
                 <div class="circular-image">
-                  <img
-                    src={`reviews/${img}`}
-                    alt={`comentario by ${user}`}
-                  />
+                  <img src={`reviews/${img}`} alt={`comentario by ${user}`} />
                 </div>
               </div>
               <div class="customer-testimony">
@@ -55,6 +57,17 @@ const reviews = await getCollection("reviews");
     }
   }
 
+  .reviews-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .reviews-image {
+    width: 150px; /* Adjust the size as needed */
+    transform: rotate(-10deg); /* Rotate the image */
+  }
+
   .reviews-container {
     display: flex;
     flex-wrap: wrap;
@@ -71,6 +84,7 @@ const reviews = await getCollection("reviews");
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Ensure content does not overflow */
+    border-width: thick;
   }
 
   .circular-image img {

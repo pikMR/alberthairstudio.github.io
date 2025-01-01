@@ -1,76 +1,78 @@
 ---
-import Logo from '../assets/cropped-logo-4.png'
+import Logo from "../assets/cropped-logo-4.png";
 ---
 
 <header>
-    <nav class="container">
-        <div class="nav-logo">
-            <a href="#">
-                <img src={Logo.src} alt="logo de la marca">
-            </a>
-        </div>
-        <div class="nav-links">
-            <a href="#features">Servicios</a>
-            <a href="#customers">Reseñas</a>
-            <a href="https://alberthairstudiopro.netlify.app/" target="_blank">
-                <span>Pedir Cita</span>
-                <span class="pulse tag">App</span>
-            </a>
-        </div>
-    </nav>
+  <nav class="container">
+    <div class="nav-logo">
+      <a href="#">
+        <img src={Logo.src} alt="logo de la marca" />
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="#customers">Reseñas</a>
+      <a href="#footer">Redes</a>
+      <a href="https://alberthairstudiopro.netlify.app/" target="_blank">
+        <span>Pedir Cita</span>
+        <span class="pulse tag">App</span>
+      </a>
+    </div>
+  </nav>
 </header>
 
 <style lang="scss">
-.nav-logo img{
+  .nav-logo img {
     width: 150px !important;
-}
-nav{
+  }
+  nav {
     position: relative;
     display: grid;
     grid-template-columns: 30% 55% 30%;
     top: 20px;
     align-items: center;
-    .nav-cta{
-       text-align: right;
+    .nav-cta {
+      text-align: right;
     }
-    .nav-links{
-        margin-top: -2px;
+    .nav-links {
+      margin-top: -2px;
     }
-    a:not(.button){
-        padding: 0 10px;
-        color: #333;
-        text-decoration: none;
-        font-weight: 500;
-        img{
-            width: 90px;
-            margin-left: -6px;
-            margin-top: 2px;
-        }
+    a:not(.button) {
+      padding: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      img {
+        width: 90px;
+        margin-left: -6px;
+        margin-top: 2px;
+      }
     }
 
-    @media (max-width:900px) {
-        grid-template-columns: 30% 70%;
-        .nav-logo img{
-            margin-top: 7px;
-        }
-        .nav-links{
-            display: none;
-        }
+    @media (max-width: 900px) {
+      grid-template-columns: 50% 50%;
+      .nav-logo img {
+        margin-top: 7px;
+      }
+      .nav-links {
+        display: inline-block;
+      }
     }
-}
-.pulse{
-    animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite;
-}
-@keyframes pulse {
-   50% { opacity: .7; }
-}
+  }
+  .pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    50% {
+      opacity: 0.7;
+    }
+  }
 
-.tag{
+  .tag {
     background-color: var(--tenary);
     color: #fff;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 1.2rem;
     font-weight: 500;
-}
+  }
 </style>
