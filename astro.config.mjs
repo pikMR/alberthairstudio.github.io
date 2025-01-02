@@ -29,17 +29,17 @@ export default defineConfig({
       URL_DOWNLOAD_APP_IOS: envField.string({
         context: "client",
         access: "public",
-        default: "https://www.downloadpro.com/app/ios",
+        default: "https://apps.apple.com/app/id1297230801",
       }),
       URL_DOWNLOAD_APP_ANDROID: envField.string({
         context: "client",
         access: "public",
-        default: "https://www.downloadpro.com/app/android",
+        default: "https://play.google.com/store/apps/details?id=com.fresha.Fresha",
       }),
       URL_REQUEST_BOOKING: envField.string({
         context: "client",
         access: "public",
-        default: "https://www.requestpro.com/booking",
+        default: "https://alberthairstudio.es/pedir-cita/",
       }),
     },
   },

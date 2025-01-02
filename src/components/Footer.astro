@@ -1,25 +1,26 @@
 ---
-import instagramIcon from "../assets/instagram.svg";
-import twitterIcon from "../assets/twitter.svg";
-import locationIcon from "../assets/location.svg";
-import whatsappIcon from "../assets/whatsapp.svg";
+import InstagramIcon from "../assets/instagram.svg";
+import TwitterIcon from "../assets/twitter.svg";
+import LocationIcon from "../assets/location.svg";
+import WhatsappIcon from "../assets/whatsapp.svg";
+import { Image } from "astro:assets";
 
 const links = [
   {
     title: "Instagram",
     link: `https://www.instagram.com/albert_hair_studio/`,
-    icon: instagramIcon,
+    icon: InstagramIcon,
   },
   {
     title: "X",
     link: `https://twitter.com/_alberthebarber/`,
-    icon: twitterIcon,
+    icon: TwitterIcon,
   },
-  { title: "Whatsapp", link: `https://wa.me/34617584185`, icon: whatsappIcon },
+  { title: "Whatsapp", link: `https://wa.me/34617584185`, icon: WhatsappIcon },
   {
     title: "Localización",
     link: `https://maps.app.goo.gl/DugarCbLatEZJPNM9`,
-    icon: locationIcon,
+    icon: LocationIcon,
   },
 ];
 ---
@@ -30,7 +31,7 @@ const links = [
       {
         links.map((item) => (
           <a href={item.link} target="_blank">
-            <img src={item.icon.src} alt={item.title} class="footer-icon" />
+            <Image src={item.icon} alt={item.title} class="footer-icon" />
           </a>
         ))
       }

@@ -1,22 +1,23 @@
 ---
-import FeatureOne from "../assets/jpg/tijeras.jpg";
-import FeatureTwo from "../assets/jpg/corte.jpeg";
-import FeatureThree from "../assets/jpg/estil.jpg";
+import { Image } from "astro:assets";
+import FeatureOne from "../assets/tijeras_resized.jpg";
+import FeatureTwo from "../assets/corte_resized.jpg";
+import FeatureThree from "../assets/estil_resized.png";
 
-const links = [
+const images = [
   {
     title: "Corte de cabello",
-    link: FeatureOne.src,
+    icon: FeatureOne,
     desc: "Desde estilos clásicos hasta las últimas tendencias.",
   },
   {
     title: "Afeitado",
-    link: FeatureTwo.src,
+    icon: FeatureTwo,
     desc: "El mejor tratamiento para tu barba.",
   },
   {
     title: "Estilizado",
-    link: FeatureThree.src,
+    icon: FeatureThree,
     desc: "Perfecto para eventos especiales o para destacar en tu día a día.",
   },
 ];
@@ -27,10 +28,15 @@ const links = [
     <h2 class="h2-title center">Nuestros servicios</h2>
     <div class="row">
       {
-        links.map((item) => (
+        images.map((item) => (
           <div class="sol-wrap one-third column">
             <div class="sol-media m-margin">
-              <img src={item.link} alt={item.title} class="rounded-img" />
+              <Image
+                src={item.icon}
+                alt={item.title}
+                class="rounded-img"
+                width={150}
+              />
             </div>
             <h3 class="h3-title">{item.title}</h3>
             <p>{item.desc}</p>

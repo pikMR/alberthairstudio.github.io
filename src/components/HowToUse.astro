@@ -1,6 +1,7 @@
 ---
-import ShowcaseDani from "../assets/jpg/resizeddani.jpg";
-import ShowcasePuas from "../assets/jpg/resizedpuas.jpg";
+import { Image } from "astro:assets";
+import ShowcaseDani from "../assets/dani_transparente_peke.png";
+import ShowcasePuas from "../assets/puas_transparente_peke.png";
 import {
   URL_DOWNLOAD_APP_IOS,
   URL_DOWNLOAD_APP_ANDROID,
@@ -19,8 +20,8 @@ const features = [
     <div class="row product-brief-items">
       <div class="brief-media center one-half column">
         <div class="image-row">
-          <img src={ShowcaseDani.src} alt="Barber1" />
-          <img src={ShowcasePuas.src} alt="Barber2" />
+          <Image src={ShowcaseDani} alt="Barber1" />
+          <Image src={ShowcasePuas} alt="Barber2" />
         </div>
       </div>
       <div class="brief-tab one-half column">
@@ -40,10 +41,10 @@ const features = [
         </ol>
         <br />
         <a href={URL_DOWNLOAD_APP_IOS} class="button button-primary lg">
-          <img src={Apple.src} alt="Apple" class="icon" /> Descarga la app ios
+          <Image src={Apple} alt="Apple" class="icon" /> Descarga la app ios
         </a>
         <a href={URL_DOWNLOAD_APP_ANDROID} class="button button-primary lg">
-          <img src={Android.src} alt="Android" class="icon" /> Descarga la app android
+          <Image src={Android} alt="Android" class="icon" /> Descarga la app android
         </a>
       </div>
     </div>
@@ -68,14 +69,11 @@ const features = [
   }
 
   .product-defined {
-    padding: 120px 20px;
+    padding: 40px 20px;
     .brief-media {
       .image-row {
         display: flex;
-        justify-content: space-between;
-        img {
-          width: 48%;
-        }
+        justify-content: center;
       }
     }
     .product-brief-items {
@@ -107,7 +105,7 @@ const features = [
     }
     @media (max-width: 700px) {
       .product-brief-items {
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 30px;
         .brief-tab {
           padding-top: 0px;

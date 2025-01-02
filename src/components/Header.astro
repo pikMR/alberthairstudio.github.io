@@ -1,18 +1,18 @@
 ---
 import Logo from "../assets/cropped-logo-4.png";
+import { Image } from "astro:assets";
+import { URL_REQUEST_BOOKING } from "astro:env/client";
 ---
 
 <header>
   <nav class="container">
     <div class="nav-logo">
-      <a href="#">
-        <img src={Logo.src} alt="logo de la marca" />
-      </a>
+      <Image src={Logo} alt="logo de la marca" loading="eager" width={169} />
     </div>
     <div class="nav-links">
       <a href="#customers">Reseñas</a>
       <a href="#footer">Redes</a>
-      <a href="https://alberthairstudiopro.netlify.app/" target="_blank">
+      <a href={URL_REQUEST_BOOKING} target="_blank">
         <span>Pedir Cita</span>
         <span class="pulse tag">App</span>
       </a>

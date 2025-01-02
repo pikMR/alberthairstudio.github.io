@@ -10,11 +10,11 @@ const reviews = await getCollection("reviews");
 <section aria-label="Review de usuarios" class="fine-section" id="customers">
   <div class="container">
     <div class="reviews-header">
-      <img src={Reviews.src} alt="Reviews" class="reviews-image" />
+      <Image src={Reviews} alt="Reviews" class="reviews-image" width={150} />
     </div>
     <div class="reviews-container">
       {
-        reviews.map(async (review) => {
+        reviews.map(async (review : any) => {
           const { user, img, rating, comment, date, link, services } =
             review.data;
 
@@ -22,7 +22,7 @@ const reviews = await getCollection("reviews");
             <article class="review-card">
               <div class="customer-pic">
                 <div class="circular-image">
-                  <img src={`reviews/${img}`} alt={`comentario by ${user}`} />
+                  <div class={`bg-${img}`} />
                 </div>
               </div>
               <div class="customer-testimony">
@@ -32,9 +32,11 @@ const reviews = await getCollection("reviews");
                   {[...Array(rating)].map((_, index) => (
                     <Image src={Star} alt="Estrella" width={15} height={15} />
                   ))}
-                  <p>
-                    <a href={link}> {date} </a>
-                  </p>
+                  {link && (
+                    <p>
+                      <a href={link}> {date} </a>
+                    </p>
+                  )}
                 </div>
                 <p class="author">{user}</p>
               </div>
@@ -47,6 +49,48 @@ const reviews = await getCollection("reviews");
 </section>
 
 <style lang="scss">
+  .bg-agosto2024 {
+    width: 60px;
+    height: 60px;
+    background: url("reviews_sprites.png") -5px -5px;
+  }
+
+  .bg-diciembre2024 {
+    width: 60px;
+    height: 60px;
+    background: url("reviews_sprites.png") -75px -5px;
+  }
+
+  .bg-junio2024 {
+    width: 60px;
+    height: 60px;
+    background: url("reviews_sprites.png") -5px -75px;
+  }
+
+  .bg-mayo2024 {
+    width: 60px;
+    height: 60px;
+    background: url("reviews_sprites.png") -75px -75px;
+  }
+
+  .bg-enero2024 {
+    width: 60px;
+    height: 60px;
+    background: url("reviews_sprites.png") -145px -5px;
+  }
+
+  .bg-noviembre2024 {
+    width: 60px;
+    height: 60px;
+    background: url("reviews_sprites.png") -145px -75px;
+  }
+
+  .bg-octubre2024 {
+    width: 36px;
+    height: 36px;
+    background: url("reviews_sprites.png") -5px -145px;
+  }
+
   .fine-section {
     background-color: var(--accent);
     .container {

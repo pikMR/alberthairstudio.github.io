@@ -1,11 +1,22 @@
 ---
-import Showcase from "../assets/jpg/puas.jpg";
+import Showcase from "../assets/puas.jpg";
+import MiniShowcase from "../assets/tienda.jpg";
 import { URL_REQUEST_BOOKING } from "astro:env/client";
+import { Image } from "astro:assets";
 ---
 
 <section class="product-hero">
   <div class="container">
     <div class="row">
+      <div class="mini-hero-media">
+        <Image
+          loading="eager"
+          src={MiniShowcase}
+          class="u-full-width"
+          width={400}
+          alt="Dueño de Albert Hair Studio"
+        />
+      </div>
       <div class="one-half column">
         <div class="d-cell">
           <h1 class="h1-title">
@@ -29,9 +40,11 @@ import { URL_REQUEST_BOOKING } from "astro:env/client";
         </div>
       </div>
       <div class="one-half column hero-media">
-        <img
-          src={Showcase.src}
+        <Image
+          loading="eager"
+          src={Showcase}
           class="u-full-width"
+          width={400}
           alt="Dueño de Albert Hair Studio"
         />
       </div>
@@ -41,7 +54,7 @@ import { URL_REQUEST_BOOKING } from "astro:env/client";
 
 <style lang="scss">
   .product-hero {
-    padding: 70px 0;
+    padding: 40px 0 0 0;
     .row {
       display: flex;
       align-items: center;
@@ -64,6 +77,25 @@ import { URL_REQUEST_BOOKING } from "astro:env/client";
         bottom: 0;
       }
     }
+    .mini-hero-media {
+      display: none;
+      position: relative;
+      img:not(.u-full-width) {
+        width: 80px;
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+      }
+    }
+    .hero-media {
+      position: relative;
+      img:not(.u-full-width) {
+        width: 80px;
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+      }
+    }
   }
 
   @media (max-width: 700px) {
@@ -72,6 +104,16 @@ import { URL_REQUEST_BOOKING } from "astro:env/client";
         flex-direction: column;
         .hero-media {
           display: none;
+        }
+        .mini-hero-media {
+          display: block;
+          position: relative;
+          img:not(.u-full-width) {
+            width: 80px;
+            position: absolute;
+            left: 20px;
+            bottom: 0;
+          }
         }
       }
     }
