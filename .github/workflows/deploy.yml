@@ -27,7 +27,7 @@ jobs:
           URL_DOWNLOAD_APP_ANDROID: ${{ env.URL_DOWNLOAD_APP_ANDROID }}
           URL_REQUEST_BOOKING: ${{ env.URL_REQUEST_BOOKING }}
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: build-artifact
           path: dist
