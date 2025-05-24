@@ -19,41 +19,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Build site
-        run: npm run build
+        uses: actions/checkout@v3
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
         env:
           URL_DOWNLOAD_APP_IOS: ${{ env.URL_DOWNLOAD_APP_IOS }}
           URL_DOWNLOAD_APP_ANDROID: ${{ env.URL_DOWNLOAD_APP_ANDROID }}
           URL_REQUEST_BOOKING: ${{ env.URL_REQUEST_BOOKING }}
-      - name: Upload build output to GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Upload Artifact
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
+          name: build-artifact
           path: dist
-
-  deploy:
+        # with:
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+  download:
     needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download All Artifacts
+      uses: actions/download-artifact@v4
+      with:
+          name: build-artifact
+          path: dist
+  deploy:
+    needs: download
     runs-on: ubuntu-22.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
