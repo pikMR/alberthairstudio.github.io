@@ -26,10 +26,9 @@ jobs:
           URL_DOWNLOAD_APP_IOS: ${{ env.URL_DOWNLOAD_APP_IOS }}
           URL_DOWNLOAD_APP_ANDROID: ${{ env.URL_DOWNLOAD_APP_ANDROID }}
           URL_REQUEST_BOOKING: ${{ env.URL_REQUEST_BOOKING }}
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload build output to GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: build-artifact
           path: dist
         # with:
           # path: . # The root location of your Astro project inside the repository. (optional)
