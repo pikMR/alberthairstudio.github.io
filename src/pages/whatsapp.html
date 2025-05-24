@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirigiendo a WhatsApp...</title>
+  <script>
+    window.onload = function () {
+      // Obtener parámetros de la URL
+      const params = new URLSearchParams(window.location.search);
+      const customer = params.get("customer") || "Usuario Desconocido";
+      const datetime = params.get("datetime") || "Fecha y Hora no especificadas";
+
+      // Construir el mensaje
+      const mensaje = `Hola, soy ${customer}. Voy he reservado cita para el ${datetime}, ¡Nos vemos allí!`;
+
+      // Codificar el texto para URL
+      const mensajeCodificado = encodeURIComponent(mensaje);
+
+      // Número de teléfono
+      const telefono = "34617584185";
+
+      // Redireccionar a WhatsApp
+      window.location.href = `https://wa.me/${telefono}?text=${mensajeCodificado}`;
+    };
+  </script>
+</head>
+<body>
+  <p>Redirigiendo a WhatsApp...</p>
+</body>
+</html>
