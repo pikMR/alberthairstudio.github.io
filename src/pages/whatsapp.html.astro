@@ -1,30 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirigiendo a WhatsApp...</title>
-  <script>
-    window.onload = function () {
-      // Obtener parámetros de la URL
-      const params = new URLSearchParams(window.location.search);
-      const customer = params.get("customer") || "Usuario Desconocido";
-      const datetime = params.get("datetime") || "Fecha y Hora no especificadas";
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirigiendo a WhatsApp...</title>
+    <script>
+      window.onload = function () {
+        // Obtener parámetro "param" de la URL
+        const params = new URLSearchParams(window.location.search);
+        const rawParam = params.get("param") || "";
 
-      // Construir el mensaje
-      const mensaje = `Hola, soy ${customer}. He reservado cita para el ${datetime}, ¡Nos vemos allí!`;
+        // Separar el valor en customer y datetime
+        const [customer, datetime] = rawParam.split(";");
 
-      // Codificar el texto para URL
-      const mensajeCodificado = encodeURIComponent(mensaje);
+        // Valores por defecto si alguno falta
+        const nombre = customer?.trim() || "Usuario Desconocido";
+        const fechaHora = datetime?.trim() || "Fecha y Hora no especificadas";
 
-      // Número de teléfono
-      const telefono = "34617584185";
+        // Construir el mensaje
+        const mensaje = `Hola, soy ${nombre}. He reservado cita para el ${fechaHora}, ¡Nos vemos allí!`;
 
-      // Redireccionar a WhatsApp
-      window.location.href = `https://wa.me/${telefono}?text=${mensajeCodificado}`;
-    };
-  </script>
-</head>
-<body>
-  <p>Redirigiendo a WhatsApp...</p>
-</body>
+        // Codificar el mensaje para la URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+
+        // Número de teléfono al que se enviará el mensaje
+        const telefono = "34617584185";
+
+        // Redireccionar a WhatsApp
+        window.location.href = `https://wa.me/${telefono}?text=${mensajeCodificado}`;
+      };
+    </script>
+  </head>
+  <body>
+    <p>Redirigiendo a WhatsApp...</p>
+  </body>
 </html>
