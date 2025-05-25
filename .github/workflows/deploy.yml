@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v4 # ← pequeño cambio para forzar refetch
+
+      - name: Build and Deploy with Astro
+        uses: withastro/action@v1
+        env:
+          URL_DOWNLOAD_APP_IOS: ${{ secrets.URL_DOWNLOAD_APP_IOS }}
+          URL_DOWNLOAD_APP_ANDROID: ${{ secrets.URL_DOWNLOAD_APP_ANDROID }}
+          URL_REQUEST_BOOKING: ${{ secrets.URL_REQUEST_BOOKING }}
