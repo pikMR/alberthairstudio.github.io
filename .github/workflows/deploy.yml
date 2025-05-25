@@ -25,12 +25,6 @@ jobs:
           URL_DOWNLOAD_APP_IOS: ${{ secrets.URL_DOWNLOAD_APP_IOS }}
           URL_DOWNLOAD_APP_ANDROID: ${{ secrets.URL_DOWNLOAD_APP_ANDROID }}
           URL_REQUEST_BOOKING: ${{ secrets.URL_REQUEST_BOOKING }}
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
