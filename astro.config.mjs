@@ -19,8 +19,10 @@ if (isBuild) {
 // https://astro.build/config
 export default defineConfig({
   server: { port: SERVER_PORT },
-  site: isBuild ? "https://pikmr.github.io" : LOCALHOST_URL,
-  base: isBuild ? "alberthairstudio.github.io" : "",
+  site: isBuild
+    ? "https://pikmr.github.io/alberthairstudio.github.io/"
+    : LOCALHOST_URL,
+  base: isBuild ? "/alberthairstudio.github.io/" : "",
   integrations: [sitemap()],
   adapter: netlify(),
   env: {
@@ -34,7 +36,8 @@ export default defineConfig({
       URL_DOWNLOAD_APP_ANDROID: envField.string({
         context: "client",
         access: "public",
-        default: "https://play.google.com/store/apps/details?id=com.fresha.Fresha",
+        default:
+          "https://play.google.com/store/apps/details?id=com.fresha.Fresha",
       }),
       URL_REQUEST_BOOKING: envField.string({
         context: "client",
