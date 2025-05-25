@@ -15,10 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository
-        uses: actions/checkout@v4 # ← pequeño cambio para forzar refetch
+        uses: actions/checkout@v4
 
       - name: Build and Deploy with Astro
         uses: withastro/action@v4.0.0
+        with:
+          deploy: true
         env:
           URL_DOWNLOAD_APP_IOS: ${{ secrets.URL_DOWNLOAD_APP_IOS }}
           URL_DOWNLOAD_APP_ANDROID: ${{ secrets.URL_DOWNLOAD_APP_ANDROID }}
